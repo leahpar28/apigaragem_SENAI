@@ -5,6 +5,7 @@
 package br.gm.raphael.apigaragem.repositories;
 
 import br.gm.raphael.apigaragem.entities.Veiculo;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -16,4 +17,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //Parte que está no ...entities/Veiculo.java
 public interface veiculoRepositories extends JpaRepository<Veiculo, Long> {
     
+   List<Veiculo> findById(long id); //fui no pacote entities e peguei o id (Prestar atenção em como o atributo está escrito)
 }

@@ -26,4 +26,10 @@ public class VeiculoService {
         List<Veiculo> result = veiculoRepositories.findAll();
         return result;    
     }
+    
+    public List<Veiculo> findById(long id){
+        
+        List<Veiculo> result = veiculoRepositories.findById(id);
+        return result;
+    }
 }
