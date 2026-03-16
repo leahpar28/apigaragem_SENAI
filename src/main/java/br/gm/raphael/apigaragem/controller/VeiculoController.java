@@ -30,8 +30,8 @@ public class VeiculoController {
     @GetMapping("/garagem/{id}")
     public List<Veiculo> findById(@PathVariable long id){
         List<Veiculo> result = veiculoService.findById(id);
-        return result;
-    
+        return result;  
+        
     } 
     
     @GetMapping("/garagem")
@@ -39,6 +39,13 @@ public class VeiculoController {
         List<Veiculo> result = veiculoService.findAll();
         return result;    
     }
+    
+    @GetMapping("/garagem/color/{cor}")
+    public List<Veiculo> findByCorIgnoreCase(@PathVariable String cor){
+            List<Veiculo> result = veiculoService.findByCorIgnoreCase(cor);
+            return result;
+    }
+
     
     
 }

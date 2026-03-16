@@ -21,15 +21,25 @@ public class VeiculoService {
     @Autowired
     private veiculoRepositories veiculoRepositories;
     
+    //SERVICE -> LISTA INTEIRA
     public List<Veiculo> findAll(){
        
         List<Veiculo> result = veiculoRepositories.findAll();
         return result;    
     }
     
+    //SERCVICE -> LISTA POR ID
     public List<Veiculo> findById(long id){
         
         List<Veiculo> result = veiculoRepositories.findById(id);
         return result;
     }
+    
+    //SERVICE -> LISTA POR COR
+    public List<Veiculo> findByCorIgnoreCase(String cor){
+        
+        List<Veiculo> result = veiculoRepositories.findByCorIgnoreCase(cor);
+        return result;
+    }
+    
 }
