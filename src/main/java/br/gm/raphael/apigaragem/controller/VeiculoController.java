@@ -4,6 +4,7 @@
  */
 package br.gm.raphael.apigaragem.controller;
 
+import br.gm.raphael.apigaragem.DTO.VeiculoMinDTO;
 import br.gm.raphael.apigaragem.entities.Veiculo;
 import br.gm.raphael.apigaragem.service.VeiculoService;
 import java.util.List;
@@ -27,6 +28,8 @@ public class VeiculoController {
     // TODO: Converter em VeiculoDTO 
     //EM RESUMO, SÓ FALTA EU PEGAR O DTO DESSA PARTE, ELA ESTÁ VINDO AS INFOS COMPLETAS
     //SÓ QUERO NOME DO VEICULO/MARCA/MODELO/COR/ANO/KM/LINKIMAGEM
+    
+    //Não precisa do minDTO
     @GetMapping("/garagem/{id}")
     public List<Veiculo> findById(@PathVariable long id){
         List<Veiculo> result = veiculoService.findById(id);
@@ -34,18 +37,21 @@ public class VeiculoController {
         
     } 
     
+    //precisa do minDTO
     @GetMapping("/garagem")
-    public List<Veiculo> findAll(){
-        List<Veiculo> result = veiculoService.findAll();
+    public List<VeiculoMinDTO> findAll(){
+        List<VeiculoMinDTO> result = veiculoService.findAll();
         return result;    
     }
     
+    //precisa do minDTO - COLOQUEI O DTO 
     @GetMapping("/garagem/color/{cor}")
-    public List<Veiculo> findByCorIgnoreCase(@PathVariable String cor){
-            List<Veiculo> result = veiculoService.findByCorIgnoreCase(cor);
+    public List<VeiculoMinDTO> findByCorIgnoreCase(@PathVariable String cor){
+            List<VeiculoMinDTO> result = veiculoService.findByCorIgnoreCase(cor);
             return result;
     }
 
+    //precisa do minDTO
     @GetMapping("/garagem/year/{ano}")
     public List<Veiculo> findByCor(@PathVariable int ano){
             List<Veiculo> result = veiculoService.findByAno(ano);

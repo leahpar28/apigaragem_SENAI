@@ -4,6 +4,7 @@
  */
 package br.gm.raphael.apigaragem.service;
 
+import br.gm.raphael.apigaragem.DTO.VeiculoMinDTO;
 import br.gm.raphael.apigaragem.entities.Veiculo;
 import br.gm.raphael.apigaragem.repositories.veiculoRepositories;
 import java.util.List;
@@ -22,13 +23,20 @@ public class VeiculoService {
     private veiculoRepositories veiculoRepositories;
     
     //SERVICE -> LISTA INTEIRA
-    public List<Veiculo> findAll(){
+    //esse eu preciso do DTO
+    
+    //esse é o (/garagem/forsale)
+ 
+    public List<VeiculoMinDTO> findAll(){
+       List<Veiculo> resultVeiculo = veiculoRepositories.findAll();
        
-        List<Veiculo> result = veiculoRepositories.findAll();
-        return result;    
+       List<VeiculoMinDTO> resultDTO = resultVeiculo.stream().map(x -> new VeiculoMinDTO(x)).toList();
+       return resultDTO;
+          
     }
     
     //SERCVICE -> LISTA POR ID
+    //esse eu NÂO preciso do DTO
     public List<Veiculo> findById(long id){
         
         List<Veiculo> result = veiculoRepositories.findById(id);
@@ -36,12 +44,15 @@ public class VeiculoService {
     }
     
     //SERVICE -> LISTA POR COR
-    public List<Veiculo> findByCorIgnoreCase(String cor){
+    //esse eu preciso do DTO
+    public List<VeiculoMinDTO> findByCorIgnoreCase(String cor){
+        List<Veiculo> resultVeiculo = veiculoRepositories.findByCorIgnoreCase(cor);
         
-        List<Veiculo> result = veiculoRepositories.findByCorIgnoreCase(cor);
-        return result;
+        List<VeiculoMinDTO> resultDTO = resultVeiculo.stream().map(x -> new VeiculoMinDTO(x)).toList();
+        return resultDTO;
     }
     
+    //esse eu preciso do DTO
     public List<Veiculo> findByAno(int ano){
         
         List<Veiculo> result = veiculoRepositories.findByAno(ano);

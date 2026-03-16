@@ -30,7 +30,7 @@ public class Veiculo {
     private String marca;
     private String modelo;
     private String cor;
-    private int ano; //estou com duvida
+    private int ano;
     private int km;
     
     @Column (name = "LINKIMAGEM")
