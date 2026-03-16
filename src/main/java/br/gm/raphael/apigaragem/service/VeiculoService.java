@@ -42,4 +42,9 @@ public class VeiculoService {
         return result;
     }
     
+    public List<Veiculo> findByAno(int ano){
+        
+        List<Veiculo> result = veiculoRepositories.findByAno(ano);
+        return result;
+    }
 }

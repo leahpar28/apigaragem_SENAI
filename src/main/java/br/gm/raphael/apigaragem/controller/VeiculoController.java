@@ -46,6 +46,10 @@ public class VeiculoController {
             return result;
     }
 
-    
+    @GetMapping("/garagem/year/{ano}")
+    public List<Veiculo> findByCor(@PathVariable int ano){
+            List<Veiculo> result = veiculoService.findByAno(ano);
+            return result;    
+    }
     
 }

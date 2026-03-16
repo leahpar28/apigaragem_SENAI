@@ -21,4 +21,6 @@ public interface veiculoRepositories extends JpaRepository<Veiculo, Long> {
    List<Veiculo> findById(long id); //fui no pacote entities e peguei o id (Prestar atenção em como o atributo está escrito)
    
    List<Veiculo> findByCorIgnoreCase(String cor);
+   
+   List<Veiculo> findByAno (int ano);
 }
