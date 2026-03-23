@@ -53,9 +53,10 @@ public class VeiculoService {
     }
     
     //esse eu preciso do DTO
-    public List<Veiculo> findByAno(int ano){
+    public List<VeiculoMinDTO> findByAno(int ano){
+        List<Veiculo> resultVeiculo = veiculoRepositories.findByAno(ano);
         
-        List<Veiculo> result = veiculoRepositories.findByAno(ano);
-        return result;
+        List<VeiculoMinDTO> resultDTO = resultVeiculo.stream().map(x -> new VeiculoMinDTO(x)).toList();
+        return resultDTO;
     }
 }

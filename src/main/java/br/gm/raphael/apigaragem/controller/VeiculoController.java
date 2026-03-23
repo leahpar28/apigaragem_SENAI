@@ -53,8 +53,8 @@ public class VeiculoController {
 
     //precisa do minDTO
     @GetMapping("/garagem/year/{ano}")
-    public List<Veiculo> findByCor(@PathVariable int ano){
-            List<Veiculo> result = veiculoService.findByAno(ano);
+    public List<VeiculoMinDTO> findByCor(@PathVariable int ano){
+            List<VeiculoMinDTO> result = veiculoService.findByAno(ano);
             return result;    
     }
     
